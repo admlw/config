@@ -9,9 +9,11 @@ fi
 
 # aliases ################################################################
 
-alias ll='ls -lh --color=auto'
+alias getbt='sudo rmmod btusb; sudo modprobe btusb'
 
-alias findfcl='/nashome/d/dbrailsf/Scripts/utilities/findfcl'
+alias ll='ls -l --color=auto'
+
+alias findfcl='/afs/fnal.gov/files/home/room1/dbrailsf/Scripts/utilities/findfcl'
 
 data=/uboone/data/users/alister1/
 alias cddata='cd /uboone/data/users/alister1/'
@@ -19,13 +21,6 @@ alias cddata='cd /uboone/data/users/alister1/'
 app=/uboone/app/users/alister1/
 alias cdapp='cd /uboone/app/users/alister1/'
 
-scratch=/pnfs/uboone/scratch/users/alister1
-alias cdsc='cd /pnfs/uboone/scratch/users/alister1'
-
-fcl=/uboone/app/users/alister1/macros/fcl/
-alias cdfcl='cd /uboone/app/users/alister1/macros/fcl/'
-
-alias srcub='source /grid/fermiapp/products/uboone/setup_uboone.sh'
 
 ##########################################################################
 
@@ -33,37 +28,32 @@ alias srcub='source /grid/fermiapp/products/uboone/setup_uboone.sh'
 # preserve bash history from tmux ########################################
 
 # avoid duplicates..
-#export HISTCONTROL=ignoredups:erasedups//
-#ts root number of event
-#append history entries..
-#shopt -s histappend
+export HISTCONTROL=ignoredups:erasedups
+
+# append history entries..
+shopt -s histappend
 
 # After each command, save and reload history
-#export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+
+##########################################################################
+
 
 ###########################################################################
 
+print () {
 
-# source uboonecode on lapx ###############################################
+if [ $# = 0 ]
+  then
+    echo "Not enough arguments"
+    return 1;
+fi
 
-function __srclapx 
-{
-  source /cvmfs/uboone.opensciencegrid.org/products/setup_uboone.sh; 
-  setup uboonecode "$@";
+scp $1 alister@lapx.lancs.ac.uk: 
+ssh -A alister@lapx.lancs.ac.uk lpr $1 -P hp_colour
+
+return 0;
 }
-alias srclapx='__srclapx'
 
-###########################################################################
-
-
-# source uboonecode on uboonegpvms ########################################
-
-function __srcuboone
-{
- source /grid/fermiapp/products/uboone/setup_uboone.sh;
- setup uboonecode "$@";
-}
-alias srcuboone='__srcuboone'
-
-###########################################################################
-alias config='usr/bin/git --git-dir=/nashome/a/alister1/.cfg/ --work-tree=/nashome/a/alister1'
+# added by Anaconda3 4.2.0 installer
+export PATH="/home/adam/anaconda3/bin:$PATH"
