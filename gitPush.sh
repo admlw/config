@@ -1,6 +1,6 @@
 cp ~/.vimrc .
-
-
+cp ~/.bashrc .
+cp ~/tmux-config .
 
 git add .
 git commit -m "updating files"
