@@ -15,6 +15,8 @@ alias ll='ls -l --color=auto'
 
 alias findfcl='/afs/fnal.gov/files/home/room1/dbrailsf/Scripts/utilities/findfcl'
 
+alias lock='dm-tool lock' 
+
 data=/uboone/data/users/alister1/
 alias cddata='cd /uboone/data/users/alister1/'
 
