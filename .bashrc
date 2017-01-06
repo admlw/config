@@ -23,6 +23,10 @@ alias cddata='cd /uboone/data/users/alister1/'
 app=/uboone/app/users/alister1/
 alias cdapp='cd /uboone/app/users/alister1/'
 
+sc=/pnfs/uboone/scratch/users/alister1/
+alias cdsc='cd /pnfs/uboone/scratch/users/alister1/'
+
+fcl='cd /uboone/app/users/alister1/marcos/fcl/'
 
 ##########################################################################
 
