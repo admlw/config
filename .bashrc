@@ -6,16 +6,28 @@ if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
 fi
 
-
-# aliases ################################################################
-
-alias getbt='sudo rmmod btusb; sudo modprobe btusb'
+##
+## global
+##
 
 alias ll='ls -l --color=auto'
 
-alias findfcl='/nashome/d/dbrailsf/Scripts/utilities/findfcl'
+##
+## local
+##
 
-alias lock='dm-tool lock' 
+# helps with connecting bluetooth headphones to the pc
+alias getbt='sudo rmmod btusb; sudo modprobe btusb'
+
+# setup bluetooth keyboard config, changing ¬` key to \| key
+alias keybt='xinput set-prop 13 323 0' 
+
+# added by Anaconda3 4.2.0 installer
+export PATH="/home/adam/anaconda3/bin:$PATH"
+
+##
+## fermi
+##
 
 data=/uboone/data/users/alister1/
 alias cddata='cd /uboone/data/users/alister1/'
@@ -26,9 +38,9 @@ alias cdapp='cd /uboone/app/users/alister1/'
 sc=/pnfs/uboone/scratch/users/alister1/
 alias cdsc='cd /pnfs/uboone/scratch/users/alister1/'
 
+pers=/pnfs/uboone/persistent/users/alister1/
+alias cdpers='cd /pnfs/uboone/persistent/users/alister1/'
+
 fcl='cd /uboone/app/users/alister1/marcos/fcl/'
 
-##########################################################################
-
-# added by Anaconda3 4.2.0 installer
-export PATH="/home/adam/anaconda3/bin:$PATH"
+alias findfcl='/nashome/d/dbrailsf/Scripts/utilities/findfcl'
