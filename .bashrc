@@ -44,3 +44,7 @@ alias cdpers='cd /pnfs/uboone/persistent/users/alister1/'
 fcl='cd /uboone/app/users/alister1/marcos/fcl/'
 
 alias findfcl='/nashome/d/dbrailsf/Scripts/utilities/findfcl'
+
+alias srcub='source /grid/fermiapp/products/uboone/setup_uboone.sh'
+
+alias srcuboone='source /grid/fermiapp/products/uboone/setup_uboone.sh; setup uboonecode'
