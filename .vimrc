@@ -28,3 +28,9 @@ au Syntax * RainbowParenthesesLoadBraces
 augroup mkd
   autocmd BufRead *.mkd setfiletype mkd
 augroup END
+
+" LaTeX (rubber) macro for compiling
+nnoremap <leader>c :w<CR>:!rubber --pdf --waen all %<CR>
+
+" View PDF macro: '%:r' is current file's root (base) name
+nnoremap <leader>v :!mupdf %:r.pdf &<CR><CR>
