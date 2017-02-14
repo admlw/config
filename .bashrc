@@ -20,7 +20,7 @@ alias ll='ls -l --color=auto'
 alias getbt='sudo rmmod btusb; sudo modprobe btusb'
 
 # setup bluetooth keyboard config, changing ¬` key to \| key
-alias backslash = xmodmap -e "keycode 49 = backslash bar"
+alias backslash='xmodmap -e "keycode 49 = backslash bar"'
 
 # allow usage of touchpad while typing
 alias keybt='xinput set-prop 13 323 0' 
