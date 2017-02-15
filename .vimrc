@@ -15,6 +15,7 @@ Plug 'SirVer/ultisnips'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'itchyny/lightline.vim'
 Plug 'sjl/badwolf'
+Plug 'ervandew/supertab'
 
 call plug#end()
 
