@@ -22,17 +22,17 @@ call plug#begin('~/.vim/plugged')
 
 " Declare list of plugins
 Plug 'tpope/vim-sensible'
-Plug 'junegunn/seoul256.vim' 
 Plug 'Shougo/neocomplete.vim'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 call plug#end()
  
-" define color scheme
-colo seoul256
-" colo seoul256-light
-let g:seoul256_background = 235
-
 let g:neocomplete#enable_at_startup = 1
-let g:seoul256_srgb = 1
+
+" Trigger configuration 
+ let g:UltiSnipsExpandTrigger="<tab>"
+ let g:UltiSnipsJumpForwardTrigger="<c-b>"
+ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
