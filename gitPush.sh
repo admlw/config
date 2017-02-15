@@ -1,6 +1,6 @@
 cp ~/.vimrc .
 cp ~/.bashrc .
-cp ~/.tmux-conf .
+cp ~/.tmux.conf .
 cp -r ~/.vim/plugged/ultisnips/UltiSnips .
 
 git add .
