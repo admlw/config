@@ -24,7 +24,7 @@ call plug#end()
  let g:UltiSnipsExpandTrigger="<tab>"
  let g:UltiSnipsJumpForwardTrigger="<c-j>"
  let g:UltiSnipsJumpBackwardTrigger="<c-k>"
- let g:UltiSnipsSnippetsDir = "~.vim/plugged/ultisnips/UltiSnips/"
+ let g:UltiSnipsSnippetsDir = "~/.vim/plugged/ultisnips/UltiSnips/"
 
  " If you want :UltiSnipsEdit to split your window.
  let g:UltiSnipsEditSplit="vertical"
