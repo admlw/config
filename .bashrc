@@ -25,6 +25,9 @@ alias backslash='xmodmap -e "keycode 49 = backslash bar"'
 # allow usage of touchpad while typing
 alias keybt='xinput set-prop 13 323 0' 
 
+# src root
+alias srcroot='source ~/root_v06_08/build/bin/thisroot.sh'
+
 # added by Anaconda3 4.2.0 installer
 export PATH="/home/adam/anaconda3/bin:$PATH"
 
