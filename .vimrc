@@ -3,21 +3,22 @@
 set nocompatible
 
 " latex rubber macro for compiling
- nnoremap <leader>c :w<CR>:!rubber --pdf --warn all %<CR>
+nnoremap <leader>c :w<CR>:!rubber --pdf --warn all %<CR>
 
 " view pdf macro: '%:r' is current file's root (base) name
- nnoremap <leader>s :!mupdf %:r.pdf &<CR><CR>
+nnoremap <leader>s :!mupdf %:r.pdf &<CR><CR>
 
 " vim-plug package manager
 call plug#begin('~/.vim/plugged')
-
-    Plug 'SirVer/ultisnips' " snippet tool
-    Plug 'itchyny/lightline.vim' " swanky statusline
-    Plug 'sjl/badwolf' " colour scheme
-    Plug 'ervandew/supertab' " autocomplete
-    Plug 'junegunn/goyo.vim' " distraction free mode
-    Plug 'sheerun/vim-polyglot' " syntax highlighting
-
+Plug 'scrooloose/syntastic'
+Plug 'SirVer/ultisnips'      " snippet tool
+Plug 'itchyny/lightline.vim' " swanky statusline
+Plug 'sjl/badwolf'           " colour scheme
+Plug 'junegunn/goyo.vim'     " distraction free mode
+Plug 'sheerun/vim-polyglot'  " syntax highlighting
+Plug 'godlygeek/tabular'     " auto align
+Plug 'luochen1990/rainbow'   " rainbow parenthesis
+Plug 'ervandew/supertab'     " autcomplete
 call plug#end()
 
 " trigger configuration for ultisnips
@@ -54,3 +55,4 @@ syntax on
 colorscheme badwolf
 set laststatus=2
 
+let g:rainbow_active = 1 
