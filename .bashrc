@@ -12,6 +12,12 @@ fi
 
 alias ll='ls -l --color=auto'
 
+# stop ctrl-s hanging terminal
+stty -ixon
+
+# ctrl-s goes to start of line
+bind '"\C-s": beginning-of-line'
+
 ##
 ## local
 ##
