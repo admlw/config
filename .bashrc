@@ -52,6 +52,22 @@ function setup_env
 
 }
 
+function displaypdf
+{
+
+  files=( "$@" )
+
+  for i in "${!files[@]}"
+  do
+    file=${files[$i]}
+    convert "$file" "${file%.*}".png
+  done
+
+  eog *.png
+
+  rm *.png
+
+}
 
 # source global definitions
 if [ -f /etc/bashrc ]; then
@@ -161,3 +177,5 @@ alias unbzip2='tar -xjf'
 alias jobsub_q_held='jobsub_q --user alister1 --constraint "(jobstatus==5)"'
 
 alias jobsub_rm_held='jobsub_rm --user alister1 --constraint "(jobstatus==5)"'
+
+
