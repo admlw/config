@@ -1,6 +1,6 @@
 cp ~/.vimrc .
 cp ~/.bashrc .
-cp ~/.bash_profile
+cp ~/.bash_profile .
 cp ~/.tmux.conf .
 cp -r ~/.vim/plugged/ultisnips/UltiSnips .
 
