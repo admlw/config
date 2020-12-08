@@ -21,15 +21,6 @@ Plug 'luochen1990/rainbow'   " rainbow parenthesis
 Plug 'ervandew/supertab'     " autcomplete
 call plug#end()
 
-" trigger configuration for ultisnips
-"let g:UltiSnipsExpandTrigger="<tab>"
-"let g:UltiSnipsJumpForwardTrigger="<c-j>"
-"let g:UltiSnipsJumpBackwardTrigger="<c-k>"
-"let g:UltiSnipsSnippetsDir = "~/.vim/plugged/ultisnips/UltiSnips/"
-"
-"" splits the screen vertically for new snippets
-"let g:UltiSnipsEditSplit="vertical"
-
 " remap hjkl to rightleftupdown
 map <D-A-RIGHT> <C-w>l
 map <D-A-LEFT> <C-w>h
