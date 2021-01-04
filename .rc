@@ -1,35 +1,6 @@
 # .bashrc
 # user specific aliases and functions
 
-# check shell
-ZSH_SHELL=0
-BASH_SHELL=0
-if [[ ${SHELL} == "/bin/zsh" ]]; then
-  echo "setting up for zsh shell"
-  ZSH_SHELL=1
-else
-  echo "setting up for bash shell"
-  BASH_SHELL=1
-fi
-
-# source global definitions
-if [ -f /etc/bashrc && ${BASH_SHELL} == 1 ]; then
-  . /etc/bashrc
-fi
-
-if [[ ${ZSH_SHELL} == 1 ]]; then
-  export CLICOLOR=1
-fi
-
-# stop ctrl-s hanging terminal
-if [[ $- == *i* ]]
-then
-  stty -ixon
-  # ctrl-s goes to start of line
-  bind '"\C-s": beginning-of-line'
-  setup_env
-fi
-
 # functions
 
 function setup_env
@@ -123,5 +94,35 @@ alias unbzip2='tar -xjf'
 alias jobsub_q_held='jobsub_q --user alister1 --constraint "(jobstatus==5)"'
 
 alias jobsub_rm_held='jobsub_rm --user alister1 --constraint "(jobstatus==5)"'
+
+# check shell
+ZSH_SHELL=0
+BASH_SHELL=0
+if [[ ${SHELL} == "/bin/zsh" ]]; then
+  echo "setting up for zsh shell"
+  ZSH_SHELL=1
+else
+  echo "setting up for bash shell"
+  BASH_SHELL=1
+fi
+
+# source global definitions
+if [[ -f /etc/bashrc && ${BASH_SHELL} == 1 ]]; then
+  . /etc/bashrc
+fi
+
+if [[ ${ZSH_SHELL} == 1 ]]; then
+  export CLICOLOR=1
+fi
+
+# stop ctrl-s hanging terminal
+if [[ $- == *i* && ${BASH_SHELL} == 1 ]]
+then
+  stty -ixon
+  # ctrl-s goes to start of line
+  bind '"\C-s": beginning-of-line'
+fi
+
+setup_env
 
 
