@@ -94,6 +94,12 @@ function findrec
   grep -rnw "$1" -e "$2"
 }
 
+function kill_tmux_sessions
+{
+  tmuxid=`pgrep -u alister1 tmux`
+  kill -9 ${tmuxid}
+}
+
 # aliases
 
 alias ll='ls -l'
