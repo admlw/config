@@ -3,6 +3,22 @@
 
 # functions
 
+# check shell
+ZSH_SHELL=0
+BASH_SHELL=0
+if [[ ${SHELL} == "/bin/zsh" ]]; then
+  echo "setting up for zsh shell"
+  ZSH_SHELL=1
+else
+  echo "setting up for bash shell"
+  BASH_SHELL=1
+fi
+
+# source global definitions
+if [[ -f /etc/bashrc && ${BASH_SHELL} == 1 ]]; then
+  . /etc/bashrc
+fi
+
 function setup_env
 {
 
@@ -24,6 +40,7 @@ function setup_env
       pers=/pnfs/nova/persistent/users/alister1/
       res=/pnfs/nova/resilient/users/alister1/
       nux=/pnfs/nova/persistent/analysis/nux/nus20/
+      . ~/.productionaliases
       ;;
     uboone*)
       app=/uboone/app/users/alister1/
@@ -65,6 +82,12 @@ function findrec
   grep -rnw "$1" -e "$2"
 }
 
+function findfiles              
+{                               
+  echo finding "$2" in "$1"     
+  grep -rn -l "$1" -e "$2"      
+}     
+
 function kill_tmux_sessions
 {
   tmuxid=`pgrep -u alister1 tmux`
@@ -94,22 +117,6 @@ alias unbzip2='tar -xjf'
 alias jobsub_q_held='jobsub_q --user alister1 --constraint "(jobstatus==5)"'
 
 alias jobsub_rm_held='jobsub_rm --user alister1 --constraint "(jobstatus==5)"'
-
-# check shell
-ZSH_SHELL=0
-BASH_SHELL=0
-if [[ ${SHELL} == "/bin/zsh" ]]; then
-  echo "setting up for zsh shell"
-  ZSH_SHELL=1
-else
-  echo "setting up for bash shell"
-  BASH_SHELL=1
-fi
-
-# source global definitions
-if [[ -f /etc/bashrc && ${BASH_SHELL} == 1 ]]; then
-  . /etc/bashrc
-fi
 
 if [[ ${ZSH_SHELL} == 1 ]]; then
   export CLICOLOR=1
