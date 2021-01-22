@@ -54,6 +54,11 @@ function setup_env
       pers=/pnfs/uboone/persistent/users/alister1/
       res=/pnfs/uboone/resilient/users/alister1/
       ;;
+    Adams-MacBook-Pro)
+      echo "setting up for $(hostname -s)"
+      export PATH=/Users/adamlister/opt/anaconda3/bin:${PATH}
+      return 1
+      ;;
     *)
       return 1
       ;;
