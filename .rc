@@ -1,16 +1,17 @@
 # .bashrc
 # user specific aliases and functions
 
-# functions
+# check if interactive
+if [[ "$SSH_TTY" == \*\/dev\/pts/\* ]]; then
+  IS_INTERACTIVE=1
+fi
 
 # check shell
 ZSH_SHELL=0
 BASH_SHELL=0
 if [[ ${SHELL} == "/bin/zsh" ]]; then
-  echo "setting up for zsh shell"
   ZSH_SHELL=1
 else
-  echo "setting up for bash shell"
   BASH_SHELL=1
 fi
 
@@ -19,10 +20,14 @@ if [[ -f /etc/bashrc && ${BASH_SHELL} == 1 ]]; then
   . /etc/bashrc
 fi
 
+# functions
+
 function setup_env
 {
 
-  echo " -- Setting up environtment variables..."
+  if [[ ${IS_INTERACTIVE} == 1 ]]; then 
+    echo " -- Setting up environtment variables..."
+  fi
 
   case "$(hostname -s)" in
     dune*)
@@ -50,23 +55,26 @@ function setup_env
       res=/pnfs/uboone/resilient/users/alister1/
       ;;
     *)
-      echo "$(hostname) not recognised. No environment set."
       return 1
       ;;
 
   esac
+
   alias cdapp='cd "$app"'
   alias cddata='cd "$data"'
   alias cdana='cd $ana'
   alias cdsc='cd "$sc"'
   alias cdpers='cd "$pers"'
   alias cdres='cd $res'
-  echo " -- app directory        : $app"
-  echo " -- data directory       : $data"
-  echo " -- ana directory        : $ana"
-  echo " -- scratch directory    : $sc"
-  echo " -- persistent directory : $pers"
-  echo " -- resilient directory  : $res"
+
+  if [[ ${IS_INTERACTIVE} == 1 ]]; then 
+    echo " -- app directory        : $app"
+    echo " -- data directory       : $data"
+    echo " -- ana directory        : $ana"
+    echo " -- scratch directory    : $sc"
+    echo " -- persistent directory : $pers"
+    echo " -- resilient directory  : $res"
+  fi
 
 }
 
